@@ -50,7 +50,7 @@ def handle_message(event):
         working_status = True
         line_bot_api.reply_message(
             event.reply_token,
-            TextSendMessage(text = str(event.source.userId))
+            TextSendMessage(text = "你的ID为：\n"+str(event.source))
         )
 
         return
