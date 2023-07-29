@@ -39,14 +39,23 @@ def handle_message(event):
     if event.message.type != "text":
         return
 
-    if event.message.text == "說話":
+    if event.message.text == "说话":
         working_status = True
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text="我可以說話囉，歡迎來跟我互動 ^_^ "))
         return
 
-    if event.message.text == "閉嘴":
+    if event.message.text == "我的id":
+        working_status = True
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text = str(event.source.userId))
+        )
+
+        return
+
+    if event.message.text == "闭嘴":
         working_status = False
         line_bot_api.reply_message(
             event.reply_token,
